@@ -1,0 +1,25 @@
+body{
+    background-image: url("images/STATIONS_OF_THE_DOS_GAME_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+  }
+#home{
+  position: relative;
+  top: 450px;
+  margin-top: 50%;
+  border: 5px solid red;
+  color: black;
+  background-color: red;
+    
+}
+#registration{
+    border: 5px solid blue;
+    color: white;
+    background-color: blue;
+}
+#scripts{
+    border: 5px solid green;
+    color: aqua;
+    background-color: green;
+}

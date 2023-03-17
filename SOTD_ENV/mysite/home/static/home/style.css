@@ -1,0 +1,22 @@
+body{
+  background-image: url("images/STATIONS\ OF\ THE\ DOS\ GAME\ LOGO.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+#home{
+    border: 5px solid red;
+    color: black;
+    background-color: red;
+    
+}
+#registration{
+    border: 5px solid blue;
+    color: white;
+    background-color: blue;
+}
+#scripts{
+    border: 5px solid green;
+    color: aqua;
+    background-color: green;
+}
