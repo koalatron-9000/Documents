@@ -1,4 +1,4 @@
-"""Scripts URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,13 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from .views import ScriptsPageView, switch_on, switch_off, netcheck
-#from . import views
-urlpatterns = [
-    path("", ScriptsPageView.as_view(), name="scripts"),
-    path("on",switch_on, name = 'on' ),
-    path("off",switch_off, name = 'off' ),
-    path("netcheck",netcheck, name = 'netcheck')
+from django.urls import include, path
+from django.urls import include, path
 
+
+
+
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('home.urls')),
+    path('polls/', include('polls.urls')),
+    path('registration/', include('registration.urls')),
+    path('scripts/', include('scripts.urls')),
+    
+    
 ]

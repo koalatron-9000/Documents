@@ -13,7 +13,17 @@
     <a id="home" href="{% url 'home' %}">home</a>
     <a id="registration" href="{% url 'reg' %}">Registration</a>
     <a id="scripts" href="{% url 'scripts' %}">Scripts</a>
-    <br>
-    <a id="register"href="{% url 'registration' %}"
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+      </form>
+      
+      <!-- Display additional user data if needed -->
+      {% if user_data %}
+        <p>First Name: {{ user_data.first_name }}</p>
+        <p>Last Name: {{ user_data.last_name }}</p>
+        <!-- Add other fields from user_data as needed -->
+      {% endif %}
 </body>
 </html>
