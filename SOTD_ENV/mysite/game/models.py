@@ -1,5 +1,4 @@
 from django.db import models
-from registration.models import User
 
 # Create your models here.
 class Box(models.Model):
@@ -19,10 +18,14 @@ class Tag(models.Model):
 
 class Player(models.Model):
     player_id = models.AutoField(primary_key=True)
-    player_name = models.TextField(max_length= 300)
-    player_user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    user_id = models.IntegerField(blank=True, null = True)
+    first_name = models.CharField(max_length=100, blank= True)
+    last_name = models.CharField(max_length=100, blank= True)
+    user_name = models.CharField(max_length=100, blank= True)
+    occupation = models.CharField(max_length=100, blank= True)
     player_boxes_collected = models.ManyToManyField(Box, blank = True)
-    assigned_tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    assigned_tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE, null=True)
+    game_completed = models.BooleanField(blank=True, null= True)
 
     def __str__(self):
-        return self.player_name
+        return self.user_name

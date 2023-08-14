@@ -23,7 +23,11 @@
       {% if user_data %}
         <p>First Name: {{ user_data.first_name }}</p>
         <p>Last Name: {{ user_data.last_name }}</p>
-        <!-- Add other fields from user_data as needed -->
+        <!-- Add other fields from user_data as needed --> 
       {% endif %}
-</body>
+      {% for tag in unassigned_tags %}
+        <!-- Other tag information -->
+        <p>Tag ID: {{ tag.tag_id }}</p>
+      {% endfor %}
+      </body>
 </html>
