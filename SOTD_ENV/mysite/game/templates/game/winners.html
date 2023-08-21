@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+<ul>
+    {% for winner in winners_list %}
+    
+    <li>{{winner.user_name}}</li>
+    
+    {% endfor %}
+</ul>
+
+{% endblock content %}
