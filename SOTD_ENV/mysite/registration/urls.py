@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import RegistrationPageView, RegistrationView
+from .views import RegistrationView, SuccessView #RegistrationPageView,
 
 urlpatterns = [
-    path("", RegistrationPageView.as_view(), name="reg"),
-    path('registration/', RegistrationView.as_view(), name='registration'),
-    path('success_url',RegistrationView.as_view(), name='success_url')
+    path("", RegistrationView.as_view(), name='registration'),
+    path('success_url/',SuccessView.as_view(), name='success_url')
 ]

@@ -7,11 +7,10 @@ from game.models import Player, Tag
 
 
 # Create your views here.
-class RegistrationPageView(TemplateView):
-    template_name = "registration/reg.html"
 
 
 class RegistrationView(FormView):
+
     template_name = 'registration/registration.html'
     form_class = UserIdForm
 
@@ -53,13 +52,8 @@ class RegistrationView(FormView):
             player_form = PlayerForm(self.request.POST)  # Instantiate PlayerForm with POST data
             if player_form.is_valid():
                 user_instance, _ = Player.objects.get_or_create(
-                    #user_id = player_form.cleaned_data['user_id'],
-                    #first_name = player_form.cleaned_data['first_name'],
-                    #last_name = player_form.cleaned_data['last_name'],
                     user_name=player_form.cleaned_data['user_name'],
                     assigned_tag_id=player_form.cleaned_data['assigned_tag_id']
-                
-                    # Add other fields from the form as needed
                 )
 
                 # Set the player_user field to the User instance
@@ -68,3 +62,6 @@ class RegistrationView(FormView):
                 return redirect('success_url')  # Replace 'success_url' with the URL you want to redirect to after successful submission
             else:
                 return render(self.request, self.template_name, {'form': player_form})
+            
+class SuccessView(TemplateView):
+    template_name = "registration/success.html" 
