@@ -17,8 +17,5 @@ def check_boxes_collected(sender, instance, action, **kwargs):
         if set(instance.player_boxes_collected.all()) == set(boxes_needed):
             tag = instance.assigned_tag_id
             if tag and tag.assigned:
-                tag.assigned = False
-                tag.save()
-                instance.assigned_tag_id = None
                 instance.game_completed = True
                 instance.save()
