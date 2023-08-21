@@ -24,8 +24,10 @@ class Player(models.Model):
     user_name = models.CharField(max_length=100, blank= True)
     occupation = models.CharField(max_length=100, blank= True)
     player_boxes_collected = models.ManyToManyField(Box, blank = True)
-    assigned_tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE, null=True)
+    assigned_tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE, blank=True, null=True)
     game_completed = models.BooleanField(blank=True, null= True)
+    profile_creation_time = models.DateTimeField(auto_now=True)
+    game_start_time = models.DateTimeField(blank = True, null = True)
 
     def __str__(self):
         return self.user_name
