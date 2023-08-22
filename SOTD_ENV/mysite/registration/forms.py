@@ -9,7 +9,7 @@ class PlayerForm(forms.ModelForm):
     
     class Meta:
         model = Player
-        fields = ['user_name', 'assigned_tag_id']
+        exclude = ['player_boxes_collected', 'game_completed', 'profile_creation_time', 'game_start_time']
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
