@@ -21,7 +21,7 @@ class Player(models.Model):
     user_id = models.IntegerField(blank=True, null = True)
     first_name = models.CharField(max_length=100, blank= True)
     last_name = models.CharField(max_length=100, blank= True)
-    user_name = models.CharField(max_length=100, blank= True)
+    user_name = models.CharField(max_length=100, unique=True, blank= True)
     occupation = models.CharField(max_length=100, blank= True)
     player_boxes_collected = models.ManyToManyField(Box, blank = True)
     assigned_tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE, blank=True, null=True)
