@@ -1,7 +1,8 @@
 from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import UpdateView
-from .models import Player, Tag
-from django.urls import reverse
+from .models import Player
+from django.urls import reverse_lazy
+from registration.forms import PlayerForm
 
 # Create your views here.
 
@@ -25,13 +26,6 @@ class WaitingPlayerView(ListView):
 
 class PlayerUpdateView(UpdateView):
     model = Player
-    fields = ["user_name", "assigned_tag_id"]
     template_name = "game/activateoperative.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['unassigned_tags'] = Tag.objects.filter(assigned=False)
-        return context
-
-    def get_success_url(self):
-        return reverse("reserves")
+    form_class = PlayerForm
+    success_url = reverse_lazy('reserves')
