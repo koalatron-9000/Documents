@@ -4,9 +4,9 @@
 {% block content %}
 
 <ul>
-    {% for player in waiting_players  %}
+    {% for agent in reserve_agents  %}
     
-    <li><a id="operative" href="{% url 'activate' player.player_id %}">{{player.user_name}}</a></li>
+    <li><a id="operative" href="{% url 'activate' agent.player_id %}">{{agent.user_name}}</a></li>
     
 
     {% endfor %}

@@ -1,31 +1,24 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 from django.views.generic.edit import UpdateView
 from .models import Player, Tag
 from django.urls import reverse
 
 # Create your views here.
 
-class WinnerView(TemplateView):
+class WinnerView(ListView):
     template_name = "game/winners.html"
-    def get_context_data(self, **kwargs):
-        context = super(WinnerView, self).get_context_data(**kwargs)
-        context["winners_list"] = Player.objects.filter(game_completed=True)
-        return context
+    queryset = Player.objects.filter(game_completed=True)
+    context_object_name = 'winners'
 
-class ActivePlayerView(TemplateView):
+class ActivePlayerView(ListView):
     template_name = "game/activeplayers.html"
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["active_players"] = Player.objects.filter(game_completed=None).exclude(assigned_tag_id__isnull =True) 
-        return context
+    queryset = Player.objects.filter(game_completed=None).exclude(assigned_tag_id__isnull =True)
+    context_object_name = 'active_agents'
     
-class WaitingPlayerView(TemplateView):
+class WaitingPlayerView(ListView):
     template_name = "game/waitingplayers.html"
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["waiting_players"] = Player.objects.filter(game_completed=None).exclude(assigned_tag_id__isnull =False) 
-        return context
-
+    queryset = Player.objects.filter(game_completed=None).exclude(assigned_tag_id__isnull =False) 
+    context_object_name = 'reserve_agents'
 
 class PlayerUpdateView(UpdateView):
     model = Player
