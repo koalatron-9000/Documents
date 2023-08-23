@@ -1,9 +1,12 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import UpdateView
 from .models import Player, Tag
 from django.urls import reverse
 
 # Create your views here.
+
+class GHomeView(TemplateView):
+    template_name = 'game/gamehome.html'
 
 class WinnerView(ListView):
     template_name = "game/winners.html"

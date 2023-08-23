@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import WinnerView, ActivePlayerView, WaitingPlayerView, PlayerUpdateView
+from .views import WinnerView, ActivePlayerView, WaitingPlayerView, PlayerUpdateView, GHomeView
 
 urlpatterns = [
-    path("", WinnerView.as_view(), name="winners"),
+    path("", GHomeView.as_view(), name="ghome"),
+    path("winners/", WinnerView.as_view(), name="winners"),
     path("operatives/", ActivePlayerView.as_view(), name="operatives"),
     path("reserves/", WaitingPlayerView.as_view(), name="reserves"),
     path("activate/<int:pk>", PlayerUpdateView.as_view(), name="activate"),

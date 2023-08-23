@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+
+
+
+{% block content %}
+<ul>
+    <div id="links"> 
+    <a id="operatives" href="{% url 'operatives' %}">operatives</a>
+    <a id="reserves" href="{% url 'reserves' %}">reserves</a>
+    <a id="winners" href="{% url 'winners' %}">winners</a>
+    </div>
+</ul>    
+{% endblock content %}
+    
