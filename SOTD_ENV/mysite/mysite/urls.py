@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from .api import api
 
 
 
@@ -28,6 +29,7 @@ urlpatterns = [
     path('registration/', include('registration.urls')),
     path('scripts/', include('scripts.urls')),
     path('game/', include('game.urls')),
+    path('api/', api.urls),
     
     
 ]
