@@ -28,6 +28,7 @@ class Player(models.Model):
     game_completed = models.BooleanField(blank=True, null= True)
     profile_creation_time = models.DateTimeField(auto_now=True)
     game_start_time = models.DateTimeField(blank = True, null = True)
+    game_completion_time = models.DateTimeField(blank = True, null = True)
 
     def __str__(self):
         return self.user_name
