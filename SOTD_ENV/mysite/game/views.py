@@ -28,4 +28,4 @@ class PlayerUpdateView(UpdateView):
     model = Player
     template_name = "game/activateoperative.html"
     form_class = PlayerForm
-    success_url = reverse_lazy('reserves')
+    success_url = reverse_lazy('ghome')

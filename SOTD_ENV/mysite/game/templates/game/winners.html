@@ -4,10 +4,8 @@
 {% block content %}
 
 <ul>
-    {% for winner in winners %}
-    
-    <li>{{winner.user_name}}</li>
-    
+    {% for winner in winners  %}
+    <li><a id="winner" href="{% url 'activate' winner.player_id %}">{{winner.user_name}}</a></li>
     {% endfor %}
 </ul>
 
